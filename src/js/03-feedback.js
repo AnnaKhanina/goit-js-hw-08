@@ -16,18 +16,18 @@ form.querySelector('[name="message"]').value = dataForm.message;
 form.addEventListener('input', throttle(onInputForm, 500));
 form.addEventListener('submit', onSubmitForm);
 
-function onInputForm(e) {
-    dataForm[e.target.name] = e.target.value;
-    localStorage.setItem("feedback-form-state", JSON.stringify(data));
+function onInputForm(evt) {
+    dataForm[evt.target.name] = evt.target.value;
+    localStorage.setItem("feedback-form-state", JSON.stringify(dataForm));
 }
 
-function onSubmitForm(e) {
-    e.preventDefault();
+function onSubmitForm(evt) {
+    evt.preventDefault();
 
     console.log(JSON.parse(localStorage.getItem("feedback-form-state")));
 
     localStorage.clear();
-    e.target.reset();
+    evt.target.reset();
     dataForm.email = '';
     dataForm.message = '';
 }
