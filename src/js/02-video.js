@@ -9,7 +9,7 @@ player.setCurrentTime(localStorage.getItem("videoplayer-current-time")).then().c
 
 player.on('timeupdate', throttle((data) => {
     localStorage.setItem("videoplayer-current-time", data.seconds);
-    return player.on();
+    return player.play();
 }, 1000));
 
 // import Player from '@vimeo/player';
