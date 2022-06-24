@@ -7,7 +7,6 @@ import Player  from "@vimeo/player";
     const onPlay = function (data) {
     localStorage.setItem(currentTimeVideo, data.seconds);
     console.log(`${currentTimeVideo} : ${data.seconds}`)
-    // data is an object containing properties specific to that event
 };
 
 player.on('timeupdate', throttle(onPlay, 1000));
